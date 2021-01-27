@@ -12,6 +12,9 @@ class Playlist:
     # Create an object and assign it to new_song
     new_song = Song(title)
 
+    # Capitalize title
+    new_song.set_title(title)
+
     # Create move the pointer for the next song to point at the previously new song
     new_song.set_next_song(self.__first_song)
 
@@ -61,7 +64,7 @@ class Playlist:
       self.__first_song = self.__first_song.get_next_song()
 
       # Immediately exit so now useless below code is not executed
-      return False
+      return
 
 
     # Iterate through the linked objects until a match is found, in the cases where the query is not the first object
