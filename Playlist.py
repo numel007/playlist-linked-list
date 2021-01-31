@@ -32,9 +32,9 @@ class Playlist:
     # Start tracking from the first song
     current_song = self.__first_song
 
-    # Detect if the playlist is empty and return -1
+    # Detect if the playlist is empty and return False
     if current_song == None:
-      return -1
+      return False
 
     # Iterate through the song objects while their titles are not the input title
     while current_song.get_title() != str(title):
@@ -60,6 +60,9 @@ class Playlist:
     # Keep track of the previous and current song
     previous_song = self.__first_song
     current_song = self.__first_song
+
+    if current_song == None:
+      return -1
 
     # Detect if the current song is the head
     if current_song.get_title() == title:

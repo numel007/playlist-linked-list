@@ -51,10 +51,13 @@ while True:
     # Option 3: To remove a song from playlist
     elif user_selection == 3:
       song_title = input('What song do you want to remove? ')
+      result = playlist.remove_song(song_title)
 
       # Inform the user if their query failed to match any objects
-      if playlist.remove_song(song_title) == False:
+      if result == False:
         print(f'No match for {song_title} found.')
+      elif  result == -1:
+        print(f'Playlist is empty. No songs to remove.')
       else:
         print(f'{song_title} removed.')
 
@@ -68,6 +71,9 @@ while True:
       # Inform the user if their query failed to match any objects
       if index == -1:
         print(f"The song {song_title} is not in the set list.")
+
+      elif index == False:
+        print(f'Playlist is empty. No songs to search.')
 
       # Print song name with index+1 for the non comp-sci numbering system oriented folks
       else:
