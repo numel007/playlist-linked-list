@@ -15,7 +15,7 @@ class Playlist:
     # Capitalize title
     new_song.set_title(title)
 
-    # Create move the pointer for the next song to point at the previously new song
+    # Move the pointer for the next song to point at the previously new song
     new_song.set_next_song(self.__first_song)
 
     # Set the first song equal to the new song
@@ -31,6 +31,10 @@ class Playlist:
 
     # Start tracking from the first song
     current_song = self.__first_song
+
+    # Detect if the playlist is empty and return -1
+    if current_song == None:
+      return -1
 
     # Iterate through the song objects while their titles are not the input title
     while current_song.get_title() != str(title):
@@ -127,7 +131,7 @@ class Playlist:
     # Iterate through objects, increasing counter by 1 per object
     while current_song.get_title() != None:
       counter += 1
-      print(f'{counter}. {current_song}')
+      print(f'{counter}. {current_song.get_title()}')
       current_song = current_song.get_next_song()
 
       # Kill loop when there are no more linked objects
